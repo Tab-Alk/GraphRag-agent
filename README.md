@@ -1,16 +1,18 @@
 # GraphRAG Agent
 
-## Overview
-GraphRAG Agent is an advanced knowledge management system that leverages Neo4j's graph database and modern AI to create a dynamic, interconnected web of technical skills. By combining graph theory with semantic understanding, it transforms traditional skill mapping into an intelligent system that understands relationships between technologies, identifies skill gaps, and provides context-aware recommendations.
+## Overview: Graph-Powered Knowledge Management
 
-## Powered by Neo4j
+GraphRAG Agent is an advanced knowledge management system built on Neo4j, the industry-leading graph database. By leveraging Neo4j's native graph architecture, it creates a dynamic, interconnected web of technical skills where relationships are first-class citizens of the data model.
 
-Neo4j is a native graph database that stores data as nodes and relationships, making it perfect for modeling complex, interconnected data. In this project, Neo4j enables:
+### Why Neo4j?
+Neo4j's graph database is the perfect foundation for this project because it:
+- **Models Real-World Relationships**: Stores data as nodes (skills, people, roles) and relationships (knows, works_with, requires)
+- **Enables Relationship-Centric Queries**: Finds connections between skills, even through multiple degrees of separation
+- **Delivers Real-Time Insights**: Performs complex traversals to discover patterns in milliseconds
+- **Supports Flexible Schema**: Adapts the data model as your understanding of skill relationships evolves
+- **Facilitates Visual Exploration**: Intuitively explore connections using Neo4j's graph visualization tools
 
-- **Relationship-Centric Queries**: Easily find connections between skills, even through multiple degrees of separation
-- **Real-Time Insights**: Perform complex traversals to discover patterns and relationships in milliseconds
-- **Flexible Schema**: Adapt the data model as your understanding of skill relationships evolves
-- **Visual Exploration**: Intuitively explore connections using Neo4j's graph visualization tools
+This powerful combination of graph technology and semantic understanding transforms traditional skill mapping into an intelligent system that understands relationships between technologies, identifies skill gaps, and provides context-aware recommendations.
 
 ## Key Features & Semantic Processing
 
