@@ -56,7 +56,7 @@ def main():
         print("Error: 'expanded_skills.csv' not found. Make sure it's in the same directory as the script.")
         return
 
-    print("Extracting unique skills from the CSV file...")
+    print("Extracting unique skills from the CSV file")
     # Extract, split, and deduplicate skills from the 'skills' column
     df['Skill'] = df['skills'].str.split(', ')
     skills_df = df[['Skill']].explode('Skill')
@@ -64,10 +64,10 @@ def main():
 
     print(f"Found {len(skills_df)} unique skills.")
 
-    print("\nGenerating descriptions for skills...")
+    print("Generating descriptions for skills")
     skills_df['Description'] = skills_df['Skill'].apply(generate_description)
 
-    print("Generating embeddings for skill descriptions...")
+    print("Generating embeddings for skill descriptions")
     embedding_list = generate_embeddings(list(skills_df['Description']))
     if embedding_list:
         skills_df['Embedding'] = embedding_list
@@ -75,10 +75,10 @@ def main():
         print("Failed to generate embeddings. Exiting.")
         return
 
-    print("\nSuccessfully generated embeddings. Saving to CSV...")
+    print("Successfully generated embeddings. Saving to CSV")
     skills_df.to_csv('skills_embeddings.csv', index=False)
 
-    print("\nskills_embeddings.csv has been successfully created.")
+    print("skills_embeddings.csv has been successfully created.")
     print(f"File saved to: {os.path.join(os.getcwd(), 'skills_embeddings.csv')}")
 
 if __name__ == "__main__":
