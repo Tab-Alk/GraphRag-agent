@@ -58,8 +58,9 @@ def setup_environment():
         if not GOOGLE_API_KEY:
             print("Warning: GOOGLE_API_KEY not found in environment variables")
         
-        LLM = os.getenv('LLM', 'gemini-pro')
-        EMBEDDINGS_MODEL = os.getenv('EMBEDDINGS_MODEL', 'models/embedding-001')
+        # Get model names from environment variables with defaults
+        LLM = os.getenv('MODEL', 'gemini-pro')
+        EMBEDDINGS_MODEL = os.getenv('EMBEDDING_MODEL', 'models/embedding-001')
         
         return {
             'HOST': HOST,
@@ -193,7 +194,7 @@ class Neo4jConnection:
     
     def initialize_llm(self, model_name: str = 'gemini-pro'):
         """Initialize the language model."""
-        self.llm = ChatGoogleGenerativeAI(model=model_name, temperature=0.7)
+        self.llm = ChatGoogleGenerativeAI(model=model_name, temperature=0.7, convert_system_message_to_human=True)
 
 # Initialize the application
 def create_agent_tools(db: Neo4jConnection) -> list:
