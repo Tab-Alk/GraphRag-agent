@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Module 3 - GraphRAG and Agents
+GraphRAG and Agents
 
 This module implements a GraphRAG agent with the following capabilities:
 1. Retrieve skills of a person
