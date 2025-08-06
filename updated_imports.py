@@ -13,7 +13,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langgraph.prebuilt import create_react_agent
 from typing import List, Optional
 from pydantic import BaseModel, Field, validator
-import functools
+
 from langchain_core.tools import tool
 import gradio as gr
 import time
