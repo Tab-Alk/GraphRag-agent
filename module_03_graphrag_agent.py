@@ -493,14 +493,26 @@ def create_chatbot_interface(llm, tools):
     def respond(message, chat_history):
         """Generate a response to the user message."""
         try:
+            # Format the input for the agent
+            input_data = {
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": message
+                    }
+                ]
+            }
+            
             # Process the message with the agent
-            response = agent.invoke({
-                "input": message,
-                "chat_history": chat_history
-            })
+            response = agent.invoke(input_data)
             
             # Get the response text
-            bot_message = response["output"]
+            if isinstance(response, dict) and "output" in response:
+                bot_message = response["output"]
+            elif isinstance(response, str):
+                bot_message = response
+            else:
+                bot_message = str(response)
             
             # Add to chat history
             chat_history.append((message, bot_message))
